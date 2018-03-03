@@ -1,0 +1,15 @@
+{
+  "name": "jest-mock-console",
+  "version": "0.1.0",
+  "description": "Jest utility to mock the console",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "index.js",
+    "setupTestFramework.js"
+  ],
+  "author": "Brian H Pedersen",
+  "license": "MIT"
+}
