@@ -24,7 +24,7 @@ This allows you to mock and unmock the console at will, so your tests look like:
   width="500px"
 />
 
-This is much more helpful as you don't see red unless there is a failure. Then you only have to scan for red to find the problem test.
+This is much more helpful as you don't see red on success anymore. Then you know when you see red text you know something went wrong.
 
 ## Installation
 
@@ -43,7 +43,7 @@ import mockConsole from 'jest-mock-console';
 
 describe(...
   it(...
-    const restoreConsole = mockConsole();
+    const restoreConsole = mockConsole();  // mockConsole returns a function to restore it back to normal
     console.error('This will not show in the test report');
     expect(console.error).toHaveBeenCalled();
     restoreConsole();
@@ -58,7 +58,7 @@ If you don't want to worry about accidentally forgetting to `restoreConsole()` a
 In your jest config:
 
 ```javascript
-  "setupTestFrameworkScriptFile": "jest-mock-console/setupTestFramework.js"
+  "setupTestFrameworkScriptFile": "jest-mock-console/dist/setupTestFramework.js"
 ```
 
 Then in your test files:

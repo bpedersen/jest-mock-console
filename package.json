@@ -4,12 +4,18 @@
   "description": "Jest utility to mock the console",
   "main": "index.js",
   "scripts": {
+    "build": "babel src -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "index.js",
-    "setupTestFramework.js"
+    "dist",
+    "index.js"
   ],
   "author": "Brian H Pedersen",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1"
+  }
 }
