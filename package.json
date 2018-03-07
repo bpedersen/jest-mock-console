@@ -1,6 +1,6 @@
 {
   "name": "jest-mock-console",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Jest utility to mock the console",
   "main": "index.js",
   "scripts": {

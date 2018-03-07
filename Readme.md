@@ -2,6 +2,19 @@
 
 Jest utility to mock the console
 
+## Table of Contents
+
+* [Problem](#the-problem)
+* [Solution](#the-solution)
+* [Installation](#installation)
+* [Basic Example](#basic-example)
+* [setupTestFramework](#setuptestframework)
+* [mockConsole(mocks)](#mockconsolemocks)
+  * [default](#mock-default)
+  * [string](#mock-string)
+  * [array](#mock-array)
+  * [object](#mock-object)
+
 ## The problem
 If you use console or prop-types in your app, and you use jest then you end up with tests that look like:
 
@@ -34,13 +47,16 @@ This module is distributed view [npm][npm] which is bundled with [node][node] an
 npm install --save-dev jest-mock-console
 ```
 
-## Usage
+## Basic Example
 
 At the top of your test file:
 
 ```javascript
 import mockConsole from 'jest-mock-console';
+```
 
+Then your tests
+```javascript
 describe(...
   it(...
     const restoreConsole = mockConsole();  // mockConsole returns a function to restore it back to normal
@@ -51,7 +67,10 @@ describe(...
 )
 ```
 
-## Advanced Usage
+However you always need to restore the console after each test or you will break jest. This is where the [setupTestFramework](#setuptestframework) file comes in.
+
+
+## setupTestFramework
 
 If you don't want to worry about accidentally forgetting to `restoreConsole()` after your tests you can modify jest to unmock after every `it(...)`.
 
@@ -75,6 +94,19 @@ describe(...
   )
 )
 ```
+
+## mockConsole(mocks)
+
+* ### `mocks`: The properties of the console you want to mock. Defaults to ['log','warn','error']
+  * #### <a id='mock-default'></a> `default` - Will mock console.log, console.warn, and console.error
+    * `mockConsole()` same as `mockConsole(['log','warn','error'])`
+  * #### <a id='mock-string'></a> `string` - You can mock a single function
+    * `mockConsole('error')`
+  * #### <a id='mock-array'></a> `array` - You can mock multiple functions
+    * `mockConsole(['log', 'info'])`
+  * #### <a id='mock-object'></a> `object` - You can set custom functions for console
+    * ``mockConsole({error: (string) => console.log(`console.error of: ${string}`)})``
+
 
 ## LICENSE
 
