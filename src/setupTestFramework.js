@@ -1,15 +1,16 @@
-const {log, warn, error} = {...console};
-
 const originalDescribe = jasmine.getEnv().describe;
 
-jasmine.getEnv().describe = (description, specDefinitions, ...args) => {
-  const injectedSpecDefinition = () => {
-    afterEach(() => {
-      console.log = log;
-      console.warn = warn;
-      console.error = error;
+
+jasmine.getEnv().describe = (description, specDefinitions, ...describeArgs) => {
+  let $jestMockConsoleOriginal;
+  const injectedSpecDefinition = (...specArgs) => {
+    beforeEach(() => {
+       $jestMockConsoleOriginal = {...console};
     });
-    specDefinitions();
+    afterEach(() => {
+      global.console = $jestMockConsoleOriginal;
+    });
+    specDefinitions(...specArgs);
   };
-  return originalDescribe(description, injectedSpecDefinition, ...args);
+  return originalDescribe(description, injectedSpecDefinition, ...describeArgs);
 }
