@@ -97,14 +97,14 @@ describe(...
 
 ## mockConsole(mocks)
 
-* ### `mocks`: The properties of the console you want to mock. Defaults to ['log','warn','error']
-  * #### <a id='mock-default'></a> `default` - Will mock console.log, console.warn, and console.error
+* **`mocks`**: The properties of the console you want to mock. Defaults to ['log','warn','error']
+  * <a id='mock-default'></a> **`default`** - Will mock console.log, console.warn, and console.error
     * `mockConsole()` same as `mockConsole(['log','warn','error'])`
-  * #### <a id='mock-string'></a> `string` - You can mock a single function
+  * <a id='mock-string'></a> **`string`** - You can mock a single function
     * `mockConsole('error')`
-  * #### <a id='mock-array'></a> `array` - You can mock multiple functions
+  * <a id='mock-array'></a> **`array`** - You can mock multiple functions
     * `mockConsole(['log', 'info'])`
-  * #### <a id='mock-object'></a> `object` - You can set custom functions for console
+  * <a id='mock-object'></a> **`object`** - You can set custom functions for console
     * ``mockConsole({error: (string) => console.log(`console.error of: ${string}`)})``
 
 
