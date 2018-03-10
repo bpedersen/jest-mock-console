@@ -8,8 +8,8 @@ notifications:
 node_js:
   - '6'
 script:
-  - yarn test
-  - yarn test:with-setup
+  - npm run test
+  - npm run test:with-setup
 after_success:
   - codecov
 branches:
