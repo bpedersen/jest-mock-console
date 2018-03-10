@@ -1,6 +1,11 @@
 # jest-mock-console
-
 Jest utility to mock the console
+
+[![codecov][codecov-badge]][codecov]
+[![build][build-badge]][build]
+[![Dependencies][dependencyci-badge]][dependencyci]
+[![MIT License][license-badge]][license]
+
 
 ## Table of Contents
 
@@ -8,7 +13,7 @@ Jest utility to mock the console
 * [Solution](#the-solution)
 * [Installation](#installation)
 * [Basic Example](#basic-example)
-* [setupTestFramework](#setuptestframework)
+* [Advanced Example](#setuptestframework)
 * [mockConsole(mocks)](#mockconsolemocks)
   * [default](#mock-default)
   * [string](#mock-string)
@@ -70,7 +75,7 @@ describe(...
 However you always need to restore the console after each test or you will break jest. This is where the [setupTestFramework](#setuptestframework) file comes in.
 
 
-## setupTestFramework
+## Advanced Example
 
 If you don't want to worry about accidentally forgetting to `restoreConsole()` after your tests you can modify jest to unmock after every `it(...)`.
 
@@ -114,3 +119,11 @@ MIT
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org/
+[codecov-badge]: https://codecov.io/gh/PiereDome/jest-mock-console/branch/master/graph/badge.svg
+[codecov]: https://codecov.io/gh/PiereDome/jest-mock-console
+[build-badge]: https://travis-ci.org/PiereDome/jest-mock-console.svg
+[build]: https://travis-ci.org/PiereDome/jest-mock-console
+[dependencyci-badge]: https://dependencyci.com/github/PiereDome/jest-mock-console/badge
+[dependencyci]: https://dependencyci.com/github/PiereDome/jest-mock-console
+[license-badge]: https://img.shields.io/npm/l/jest-mock-console.svg
+[license]: https://github.com/PiereDome/jest-mock-console/blob/master/other/LICENSE
