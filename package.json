@@ -19,6 +19,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
+    "codecov": "^3.0.0",
     "jest": "^22.4.2"
   },
   "repository": {
@@ -28,5 +29,9 @@
   "bugs": {
     "url": "https://github.com/pieredome/jest-mock-console/issues"
   },
-  "homepage": "https://github.com/pieredome/jest-mock-console#readme"
+  "homepage": "https://github.com/pieredome/jest-mock-console#readme",
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  }
 }
