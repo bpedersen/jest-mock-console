@@ -10,8 +10,8 @@ node_js:
 script:
   - npm run test
   - npm run test:with-setup
-after_success:
-  - codecov
+# after_success:
+#   - codecov
 branches:
   only:
     - master
