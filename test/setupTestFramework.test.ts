@@ -1,9 +1,9 @@
-import mockConsole from '../index';
+import mockConsole from 'jest-mock-console';
 
 const originalConsole = {...console};
 
 describe('setupTestFramework', () => {
-  const logMock = (string) => string;
+  const logMock = (string: string) => string;
   console.log = logMock;
   describe('should reset console between it blocks', () => {
     it('is the first block', () => {

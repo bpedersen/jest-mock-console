@@ -1,4 +1,4 @@
-import mockConsole from '../src/index.js';
+import mockConsole from 'jest-mock-console';
 
 describe('mockConsole', () => {
   console.log = jest.fn(() => {throw "Log called"});
@@ -63,8 +63,8 @@ describe('mockConsole', () => {
         error: (string) => {return string},
         warn: (string) => {return string}
       });
-      expect(console.error('This should not display')).toEqual('This should not display');
-      expect(console.warn('This also should not display')).toEqual('This also should not display');
+      expect(console.error('This should not display')).toEqual('This should not display' as any);
+      expect(console.warn('This also should not display')).toEqual('This also should not display' as any);
       expect(console.error).not.toThrow();
       expect(console.warn).not.toThrow();
       expect(console.log).toThrowError('Log called');

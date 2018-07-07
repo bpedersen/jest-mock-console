@@ -1,13 +1,16 @@
 // Type definitions for jest-mock-console 0.3.7
 // Project: jest-mock-console
 // Definitions by: Quentin Golsteyn https://github.com/qgolsteyn
-export = MockConsole;
 
-declare function MockConsole(): MockConsole.RestoreConsole;
-declare function MockConsole(mockArg: MockConsole.ConsoleProps | MockConsole.ConsoleProps[] | MockConsole.MockObj): MockConsole.RestoreConsole;
+type DefaultConsole = Console;
+type ConsoleProps = keyof DefaultConsole;
 
-declare namespace MockConsole {
-    type ConsoleProps = keyof Console;
-    type MockObj = {[key in ConsoleProps]?: Console[key]};
+declare module 'jest-mock-console' {
+    export default function MockConsole(): RestoreConsole;
+    export default function MockConsole(mockArg: ConsoleProps): RestoreConsole;
+    export default function MockConsole(mockArg: ConsoleProps[]): RestoreConsole;
+    export default function MockConsole(mockArg: MockObj): RestoreConsole;
+
+    type MockObj = {[key in ConsoleProps]?: DefaultConsole[key]};
     type RestoreConsole = () => void;
 }

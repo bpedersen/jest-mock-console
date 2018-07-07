@@ -12,16 +12,29 @@
   },
   "files": [
     "dist",
+    "index.d.ts",
     "index.js"
   ],
   "author": "Brian H Pedersen",
+  "contributors": [
+    "Quentin Golsteyn"
+  ],
   "license": "MIT",
+  "peerDependencies": {
+    "jest": "22.4.2"
+  },
   "devDependencies": {
+    "@types/jasmine": "^2.8.8",
+    "@types/jest": "^23.1.4",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.2.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "codecov": "^3.0.0",
-    "jest": "^22.4.2"
+    "jest": "22.4.2",
+    "ts-jest": "^22.4.2",
+    "typescript": "^2.9.2"
   },
   "repository": {
     "type": "git",
@@ -33,6 +46,22 @@
   "homepage": "https://github.com/pieredome/jest-mock-console#readme",
   "jest": {
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "moduleNameMapper": {
+      "jest-mock-console": "<rootDir>/src"
+    },
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
