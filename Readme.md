@@ -1,4 +1,5 @@
 # jest-mock-console
+
 Jest utility to mock the console
 
 [![codecov][codecov-badge]][codecov]
@@ -6,21 +7,22 @@ Jest utility to mock the console
 [![Dependencies][dependencyci-badge]][dependencyci]
 [![MIT License][license-badge]][license]
 
-
 ## Table of Contents
 
-* [Problem](#the-problem)
-* [Solution](#the-solution)
-* [Installation](#installation)
-* [Basic Example](#basic-example)
-* [Advanced Example](#setuptestframework)
-* [mockConsole(mocks)](#mockconsolemocks)
-  * [default](#mock-default)
-  * [string](#mock-string)
-  * [array](#mock-array)
-  * [object](#mock-object)
+- [Problem](#the-problem)
+- [Solution](#the-solution)
+- [Installation](#installation)
+- [Basic Example](#basic-example)
+- [Advanced Example](#advanced-example)
+- [Analyze all logs](#analyze-all-logs)
+- [mockConsole(mocks)](#mockconsolemocks)
+  - [default](#mock-default)
+  - [string](#mock-string)
+  - [array](#mock-array)
+  - [object](#mock-object)
 
 ## The problem
+
 If you use console or prop-types in your app, and you use jest then you end up with tests that look like:
 
 <img
@@ -33,6 +35,7 @@ If you use console or prop-types in your app, and you use jest then you end up w
 This is not helpful as all of the tests have passed, but you are seeing red. It is especially unhelpful when there is an actual failure as you have to search through all the red to find the actual failed test.
 
 ## The solution
+
 This allows you to mock and unmock the console at will, so your tests look like:
 
 <img
@@ -57,10 +60,11 @@ npm install --save-dev jest-mock-console
 At the top of your test file:
 
 ```javascript
-import mockConsole from 'jest-mock-console';
+import mockConsole from "jest-mock-console";
 ```
 
 Then your tests
+
 ```javascript
 describe(...
   it(...
@@ -73,7 +77,6 @@ describe(...
 ```
 
 However you always need to restore the console after each test or you will break jest. This is where the [setupTestFramework](#setuptestframework) file comes in.
-
 
 ## Advanced Example
 
@@ -100,18 +103,43 @@ describe(...
 )
 ```
 
+## Analyze all logs
+
+In some circumstances Jest is infamouse for logging because it overwrites the bash output. If you're experiencing this kind of logging frustration and you need to analyze all the `console.log` call arguments (tipically to understand why a test is failing) you can temporary add an expect statement on the console itself.
+
+In your test files:
+
+```javascript
+describe(...
+  it(...
+    const restoreConsole = mockConsole();
+    console.error('This will not show in the test report');
+    expect(console.error.mock.calls).toEqual([]);
+    restoreConsole();
+  )
+)
+```
+
+the test looks like:
+
+<img
+  src="img/screenshot-analyze-logs.jpg?raw=true"
+  alt="Terminal Screenshot"
+  title="Terminal Screenshot"
+  width="500px"
+/>
+
 ## mockConsole(mocks)
 
-* **`mocks[string,array,object]`**: The properties of the console you want to mock. Defaults to ['log','warn','error']
-  * <a id='mock-default'></a> default - Will mock console.log, console.warn, and console.error
-    * `mockConsole()` same as `mockConsole(['log','warn','error'])`
-  * <a id='mock-string'></a> string - You can mock a single function
-    * `mockConsole('error')`
-  * <a id='mock-array'></a> array - You can mock multiple functions
-    * `mockConsole(['log', 'info'])`
-  * <a id='mock-object'></a> object - You can set custom functions for console
-    * ``mockConsole({error: (string) => console.log(`console.error of: ${string}`)})``
-
+- **`mocks[string,array,object]`**: The properties of the console you want to mock. Defaults to ['log','warn','error']
+  - <a id='mock-default'></a> default - Will mock console.log, console.warn, and console.error
+    - `mockConsole()` same as `mockConsole(['log','warn','error'])`
+  - <a id='mock-string'></a> string - You can mock a single function
+    - `mockConsole('error')`
+  - <a id='mock-array'></a> array - You can mock multiple functions
+    - `mockConsole(['log', 'info'])`
+  - <a id='mock-object'></a> object - You can set custom functions for console
+    - `` mockConsole({error: (string) => console.log(`console.error of: ${string}`)}) ``
 
 ## LICENSE
 
