@@ -103,7 +103,7 @@ describe(...
 
 ## Analyze all logs
 
-In some circumstances Jest is infamouse for logging because it overwrites the bash output. If you're experiencing this kind of logging frustration and you need to analyze all the `console.log` call arguments (tipically to understand why a test is failing) you can temporary add an expect statement on the console itself.
+In some circumstances Jest is infamous for logging because it overwrites the bash output. If you're experiencing this kind of logging frustration and you need to analyze all the `console.log` call arguments (typically to understand why a test is failing) you can temporarily add an expect statement on the console itself.
 
 In your test files:
 
