@@ -1,6 +1,6 @@
 {
   "name": "jest-mock-console",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Jest utility to mock the console",
   "main": "index.js",
   "types": "index.d.ts",
@@ -17,7 +17,8 @@
   ],
   "author": "Brian H Pedersen",
   "contributors": [
-    "Quentin Golsteyn"
+    "Quentin Golsteyn",
+    "NoriSte"
   ],
   "license": "MIT",
   "peerDependencies": {
