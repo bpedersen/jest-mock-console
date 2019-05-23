@@ -25,7 +25,7 @@ Jest utility to mock the console
 If you use console or prop-types in your app, and you use jest then you end up with tests that look like:
 
 <img
-  src="https://github.com/pieredome/jest-mock-console/raw/master/img/screenshot-problem.png"
+  src="https://github.com/bpedersen/jest-mock-console/raw/master/img/screenshot-problem.png"
   alt="Terminal Screenshot"
   title="Terminal Screenshot"
   width="500px"
@@ -37,7 +37,7 @@ This is not helpful as all of the tests have passed, but you are seeing red. It 
 This allows you to mock and unmock the console at will, so your tests look like:
 
 <img
-  src="https://github.com/pieredome/jest-mock-console/raw/master/img/screenshot-solution.png"
+  src="https://github.com/bpedersen/jest-mock-console/raw/master/img/screenshot-solution.png"
   alt="Terminal Screenshot"
   title="Terminal Screenshot"
   width="500px"
