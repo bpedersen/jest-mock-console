@@ -1,6 +1,6 @@
 {
   "name": "jest-mock-console",
-  "version": "0.4.2",
+  "version": "1.0.0",
   "description": "Jest utility to mock the console",
   "main": "index.js",
   "types": "index.d.ts",
@@ -39,12 +39,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pieredome/jest-mock-console.git"
+    "url": "https://github.com/bpedersen/jest-mock-console.git"
   },
   "bugs": {
-    "url": "https://github.com/pieredome/jest-mock-console/issues"
+    "url": "https://github.com/bpedersen/jest-mock-console/issues"
   },
-  "homepage": "https://github.com/pieredome/jest-mock-console#readme",
+  "homepage": "https://github.com/bpedersen/jest-mock-console#readme",
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
