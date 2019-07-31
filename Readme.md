@@ -146,11 +146,11 @@ MIT
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org/
-[codecov-badge]: https://codecov.io/gh/PiereDome/jest-mock-console/branch/master/graph/badge.svg
-[codecov]: https://codecov.io/gh/PiereDome/jest-mock-console
-[build-badge]: https://travis-ci.org/PiereDome/jest-mock-console.svg
-[build]: https://travis-ci.org/PiereDome/jest-mock-console
-[dependencyci-badge]: https://dependencyci.com/github/PiereDome/jest-mock-console/badge
-[dependencyci]: https://dependencyci.com/github/PiereDome/jest-mock-console
+[codecov-badge]: https://codecov.io/gh/bpedersen/jest-mock-console/branch/master/graph/badge.svg
+[codecov]: https://codecov.io/gh/bpedersen/jest-mock-console
+[build-badge]: https://travis-ci.org/bpedersen/jest-mock-console.svg
+[build]: https://travis-ci.org/bpedersen/jest-mock-console
+[dependencyci-badge]: https://dependencyci.com/github/bpedersen/jest-mock-console/badge
+[dependencyci]: https://dependencyci.com/github/bpedersen/jest-mock-console
 [license-badge]: https://img.shields.io/npm/l/jest-mock-console.svg
-[license]: https://github.com/PiereDome/jest-mock-console/blob/master/other/LICENSE
+[license]: https://github.com/bpedersen/jest-mock-console/blob/master/other/LICENSE
