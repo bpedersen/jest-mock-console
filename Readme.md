@@ -134,7 +134,7 @@ the test looks like:
 - **`mocks[string,array,object]`**: The properties of the console you want to mock. Defaults to ['log','warn','error']
   - <a id='mock-default'></a> default - Will mock console.log, console.warn, and console.error
     ```
-    mockConsole()` same as `mockConsole(['log','warn','error'])
+    mockConsole() // same as `mockConsole(['log','warn','error'])
     ```
   - <a id='mock-string'></a> string - You can mock a single function
     ```
