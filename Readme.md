@@ -85,7 +85,9 @@ If you don't want to worry about accidentally forgetting to `restoreConsole()` a
 In your jest config:
 
 ```javascript
-  "setupTestFrameworkScriptFile": "jest-mock-console/dist/setupTestFramework.js"
+  setupFilesAfterEnv: [
+    "jest-mock-console/dist/setupTestFramework.js",
+  ]
 ```
 
 Then in your test files:
