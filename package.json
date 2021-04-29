@@ -1,6 +1,6 @@
 {
   "name": "jest-mock-console",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Jest utility to mock the console",
   "main": "index.js",
   "types": "index.d.ts",
@@ -25,17 +25,16 @@
     "jest": ">= 22.4.2"
   },
   "devDependencies": {
-    "@types/jasmine": "^2.8.8",
-    "@types/jest": "^23.1.4",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^23.2.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "@types/jasmine": "^3",
+    "@types/jest": "^26.0.22",
+    "babel-jest": "^26.6.3",
     "codecov": "^3.0.0",
-    "jest": "^22.4.2",
-    "ts-jest": "^22.4.2",
-    "typescript": "^2.9.2"
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.5",
+    "typescript": "^4.2.4"
   },
   "repository": {
     "type": "git",

@@ -60,8 +60,8 @@ describe('mockConsole', () => {
   describe('an object', () => {
     it('should mock console with object passed', () => {
       const restore = mockConsole({
-        error: (string) => {return string},
-        warn: (string) => {return string}
+        error: (s: string) => s,
+        warn: (s: string) => s
       });
       expect(console.error('This should not display')).toEqual('This should not display' as any);
       expect(console.warn('This also should not display')).toEqual('This also should not display' as any);
@@ -73,8 +73,8 @@ describe('mockConsole', () => {
     it('should restore the console as it was before the mock', () => {
       const originalConsole = {...console};
       const restore = mockConsole({
-        error: (string) => {return string},
-        warn: (string) => {return string}
+        error: (s: string) => s,
+        warn: (s: string) => s
       });
       expect(console).not.toEqual(originalConsole);
       restore();

@@ -6,7 +6,11 @@ cache:
 notifications:
   email: false
 node_js:
-  - '6'
+  - '10'
+  - '12'
+  - '14'
+  - '15'
+
 script:
   - npm run test
   - npm run test:with-setup
