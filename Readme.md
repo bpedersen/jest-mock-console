@@ -83,12 +83,16 @@ However you always need to restore the console after each test or you will break
 If you don't want to worry about accidentally forgetting to `restoreConsole()` after your tests you can modify jest to unmock after every `it(...)`.
 
 In your jest config:
-
 ```javascript
   setupFilesAfterEnv: [
     "jest-mock-console/dist/setupTestFramework.js",
   ]
 ```
+If you are using jest@27 you will need to add the following as well:
+```javascript
+  testRunner: "jest-jasmine2"
+```
+
 
 Then in your test files:
 
