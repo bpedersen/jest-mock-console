@@ -25,7 +25,6 @@ const mockConsole = (mockArg) => {
     });
   }
   // Return function to restore console
-  const restore = () => global.console = originalConsole;
   return () => {
     global.console = originalConsole;
   };
