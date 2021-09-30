@@ -1,6 +1,6 @@
 {
   "name": "jest-mock-console",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Jest utility to mock the console",
   "main": "index.js",
   "types": "index.d.ts",
@@ -42,6 +42,9 @@
     "ts-jest": "^27.0.5",
     "ts-jest26": "npm:ts-jest@^26.5.6",
     "typescript": "^4.2.4"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",

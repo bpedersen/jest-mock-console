@@ -1,5 +1,6 @@
 .DS_Store
 
+.npmrc
 node_modules
 **.tgz
 
