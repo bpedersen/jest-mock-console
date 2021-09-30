@@ -6,14 +6,17 @@ cache:
 notifications:
   email: false
 node_js:
-  - '10'
-  - '12'
-  - '14'
-  - '15'
+  - "10"
+  - "12"
+  - "14"
+  - "15"
 
 script:
   - npm run test
-  - npm run test:with-setup
+  - npm run test:setupfile-with-circus
+  - npm run test:setupfile-with-jasmine
+  - npm run test26
+  - npm run test26:with-setup
 after_success:
   - codecov
 branches:
