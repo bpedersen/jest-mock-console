@@ -1,7 +1,5 @@
 // Check to see if version before 27 where jasmine is default
-const jestVersion = require("jest/package.json").version;
-const [majorVersion] = jestVersion.split(".");
-if (majorVersion < 27) {
+if (global.jasmine) {
   const originalDescribe = jasmine.getEnv().describe;
 
   jasmine.getEnv().describe = (
