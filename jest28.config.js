@@ -6,9 +6,11 @@ module.exports = {
   },
   transform: {
     "^.+\\.jsx?$": "babel-jest",
-    "^.+\\.tsx?$": "ts-jest26",
+    "^.+\\.tsx?$": "ts-jest",
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-  testURL: "http://localhost",
+  testEnvironmentOptions: {
+    url: "http://localhost",
+  },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
 };

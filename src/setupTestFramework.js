@@ -7,13 +7,20 @@ if (global.jasmine) {
     specDefinitions,
     ...describeArgs
   ) => {
-    let $jestMockConsoleOriginal;
+    let $jestMockConsoleEachOriginal;
+    let $jestMockConsoleAllOriginal;
     const injectedSpecDefinition = (...specArgs) => {
       beforeEach(() => {
-        $jestMockConsoleOriginal = { ...console };
+        $jestMockConsoleEachOriginal = { ...console };
       });
       afterEach(() => {
-        global.console = $jestMockConsoleOriginal;
+        global.console = $jestMockConsoleEachOriginal;
+      });
+      beforeAll(() => {
+        $jestMockConsoleAllOriginal = { ...console };
+      });
+      afterAll(() => {
+        global.console = $jestMockConsoleAllOriginal;
       });
       specDefinitions(...specArgs);
     };
@@ -26,17 +33,31 @@ if (global.jasmine) {
 } else {
   const originalDescribe = describe;
 
-  describe = (description, specDefinitions) => {
-    let $jestMockConsoleOriginal;
+  const decorateDescribe = (describeFn) => (description, specDefinitions) => {
+    let $jestMockConsoleEachOriginal;
+    let $jestMockConsoleAllOriginal;
+
     const injectedSpecDefinition = (...specArgs) => {
       beforeEach(() => {
-        $jestMockConsoleOriginal = { ...console };
+        $jestMockConsoleEachOriginal = { ...console };
       });
       afterEach(() => {
-        global.console = $jestMockConsoleOriginal;
+        global.console = $jestMockConsoleEachOriginal;
+      });
+      beforeAll(() => {
+        $jestMockConsoleAllOriginal = { ...console };
+      });
+      afterAll(() => {
+        global.console = $jestMockConsoleAllOriginal;
       });
       return specDefinitions(...specArgs);
     };
-    return originalDescribe(description, injectedSpecDefinition);
+    return describeFn(description, injectedSpecDefinition);
   };
+
+  global.describe = decorateDescribe(originalDescribe);
+  global.describe.skip = decorateDescribe(originalDescribe.skip);
+  global.describe.only = decorateDescribe(originalDescribe.only);
+  global.describe.each = (table) =>
+    decorateDescribe(originalDescribe.each(table));
 }

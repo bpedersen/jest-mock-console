@@ -6,7 +6,7 @@ module.exports = {
   },
   transform: {
     "^.+\\.jsx?$": "babel-jest",
-    "^.+\\.tsx?$": "ts-jest26",
+    "^.+\\.tsx?$": "ts-jest27",
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   testURL: "http://localhost",
