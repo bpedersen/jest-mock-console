@@ -11,7 +11,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var defaultKeys = ['log', 'warn', 'error'];
+var defaultKeys = ["log", "warn", "error"];
+
+if (!describe) {
+  require("@jest/globals");
+}
 
 var mockConsole = function mockConsole(mockArg) {
   var originalConsole = _objectSpread({}, console); // No argument
@@ -22,7 +26,7 @@ var mockConsole = function mockConsole(mockArg) {
       global.console[key] = jest.fn();
     });
   } // Argument is a string
-  else if (typeof mockArg === 'string' || mockArg instanceof String) {
+  else if (typeof mockArg === "string" || mockArg instanceof String) {
     global.console[mockArg] = jest.fn();
   } // Argument is an array
   else if (Array.isArray(mockArg)) {

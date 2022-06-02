@@ -11,14 +11,21 @@ if (global.jasmine) {
   var originalDescribe = jasmine.getEnv().describe;
 
   jasmine.getEnv().describe = function (description, specDefinitions) {
-    var $jestMockConsoleOriginal;
+    var $jestMockConsoleEachOriginal;
+    var $jestMockConsoleAllOriginal;
 
     var injectedSpecDefinition = function injectedSpecDefinition() {
       beforeEach(function () {
-        $jestMockConsoleOriginal = _objectSpread({}, console);
+        $jestMockConsoleEachOriginal = _objectSpread({}, console);
       });
       afterEach(function () {
-        global.console = $jestMockConsoleOriginal;
+        global.console = $jestMockConsoleEachOriginal;
+      });
+      beforeAll(function () {
+        $jestMockConsoleAllOriginal = _objectSpread({}, console);
+      });
+      afterAll(function () {
+        global.console = $jestMockConsoleAllOriginal;
       });
       specDefinitions.apply(void 0, arguments);
     };
@@ -32,19 +39,36 @@ if (global.jasmine) {
 } else {
   var _originalDescribe = describe;
 
-  describe = function describe(description, specDefinitions) {
-    var $jestMockConsoleOriginal;
+  var decorateDescribe = function decorateDescribe(describeFn) {
+    return function (description, specDefinitions) {
+      var $jestMockConsoleEachOriginal;
+      var $jestMockConsoleAllOriginal;
 
-    var injectedSpecDefinition = function injectedSpecDefinition() {
-      beforeEach(function () {
-        $jestMockConsoleOriginal = _objectSpread({}, console);
-      });
-      afterEach(function () {
-        global.console = $jestMockConsoleOriginal;
-      });
-      return specDefinitions.apply(void 0, arguments);
+      var injectedSpecDefinition = function injectedSpecDefinition() {
+        beforeEach(function () {
+          $jestMockConsoleEachOriginal = _objectSpread({}, console);
+        });
+        afterEach(function () {
+          global.console = $jestMockConsoleEachOriginal;
+        });
+        beforeAll(function () {
+          $jestMockConsoleAllOriginal = _objectSpread({}, console);
+        });
+        afterAll(function () {
+          global.console = $jestMockConsoleAllOriginal;
+        });
+        return specDefinitions.apply(void 0, arguments);
+      };
+
+      return describeFn(description, injectedSpecDefinition);
     };
+  };
 
-    return _originalDescribe(description, injectedSpecDefinition);
+  global.describe = decorateDescribe(_originalDescribe);
+  global.describe.skip = decorateDescribe(_originalDescribe.skip);
+  global.describe.only = decorateDescribe(_originalDescribe.only);
+
+  global.describe.each = function (table) {
+    return decorateDescribe(_originalDescribe.each(table));
   };
 }

@@ -1,8 +1,5 @@
+const { jest } = require("@jest/globals");
 const defaultKeys = ["log", "warn", "error"];
-
-if (!describe) {
-  require("@jest/globals");
-}
 
 const mockConsole = (mockArg) => {
   const originalConsole = { ...console };
